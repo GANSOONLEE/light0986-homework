@@ -17,7 +17,7 @@
     Label.text預設為空白。
 ```
 1. 排列順序: Button -> CheckBox1 -> CheckBox2 -> Label。timer為1秒
-1. 需求: 按下Button後Lable.text預設值為Start，依照CheckBox勾選，每秒Label隨機顯示一個數字或英文字。
+1. 需求: 按下Button後 Lable.text預設值為Start，依照CheckBox勾選，每秒Label隨機顯示一個數字或英文字。
   沒有勾選Label就顯示"請勾選"。再按一次Button，Timer會停止，Label.text設回空白。
 1. 注意async。
   

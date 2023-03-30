@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .simple-calculator {
+            display: flex;
+            height: 20vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: .9rem;
+        }
+
+        .title {
+            width: 100%;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 1.2rem;
+        }
+
+        .body input,
+        .body select {
+            font-size: 1.3rem;
+            outline: none;
+            border: none;
+            text-align: center;
+            height: 40px;
+            min-width: 45px;
+            width: 15vw;
+            max-width: 145px;
+            background-color: rgb(205, 205, 252);
+        }
+
+        .body input {
+
+            background-image: linear-gradient(rgb(119, 119, 255), rgb(119, 119, 255));
+            background-size: 0 3px;
+            background-position: bottom left;
+            background-repeat: no-repeat;
+            transition: all .2s ease-in-out;
+        }
+
+        .body select {
+            display: flex;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .body select>option {
+            row-gap: .3rem;
+            height: 30px;
+        }
+
+        input:focus,
+        select:focus {
+            background-color: rgb(235, 235, 255);
+            background-size: 100% 3px;
+        }
+
+        .body input:disabled {
+            background-color: rgb(200, 200, 200);
+            cursor: not-allowed;
+        }
+
+        button {
+            text-align: center;
+            font-size: 1.4rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            width: 100%;
+            height: 55px;
+        }
+
+        button:hover {
+            background-color: #dfdfdf;
+        }
+
+        button:active {
+            background-color: #cfcfcf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="simple-calculator">
+        <p class="title">計算機</p>
+        <div class="body">
+            <input type="text" id="textbox1">
+            <select class="combox" id="combox">
+                <option value="+" selected>+</option>
+                <option value="-">-</option>
+                <option value="x">x</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" id="textbox2">
+            <label>=</label>
+            <input type="text" id="textbox3" disabled>
+        </div>
+        <button id="count">計算結果</button>
+    </div>
+</body>
+<script>
+
+    var textbox1 = document.querySelector("#textbox1");
+    var textbox2 = document.querySelector("#textbox2");
+    var textbox3 = document.querySelector("#textbox3");
+    var button = document.querySelector("#count");
+    var combox = document.querySelector("#combox");
+
+    button.addEventListener('click', function () {
+        // 获取文本框值
+        
+        var value1 = textbox1.value;
+        var value2 = textbox2.value;
+        var op = combox.value;
+
+        // 验证文本框是否为空
+        if (value1.trim() === '' || value2.trim() === '') {
+            textbox3.value = '不能为空';
+            return;
+        }
+
+        // 验证文本框是否为数字
+        if (isNaN(value1) || isNaN(value2)) {
+            textbox3.value = '必须是数字';
+            return;
+        }
+        var num1 = parseFloat(value1);
+        var num2 = parseFloat(value2);
+        var res;
+        switch (op) {
+            case '+':
+                res = num1 + num2;
+                break;
+            case '-':
+                res = num1 - num2;
+                break;
+            case 'x':
+                res = num1 * num2;
+                break;
+            case '/':
+                if (num2 === 0) {
+                    result.innerText = '除数不能为零';
+                    return;
+                }
+                res = num1 / num2;
+                break;
+            default:
+                textbox3.value = '无效的运算符';
+                return;
+            }
+        
+
+        // 如果通过了验证，执行其他操作
+        textbox3.value = res;
+        });
+
+
+</script>
+</html>

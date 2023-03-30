@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二題</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        button, input{
+            outline: none;
+            border: none;
+        }
+        .body{
+            font-size: 1.2rem;
+            display: flex;
+            column-gap: .9rem;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .button{
+            cursor: pointer;
+            width: 10vw;
+            height: 42px;
+            font-size: 1.2rem;
+            background-color: rgba(195, 195, 255, 0.3);
+            transition: all .1s ease-in-out;
+        }
+        .button:hover{
+            background-color: rgba(195, 195, 255, 0.7);
+        }
+        .button:active{
+            background-color: rgba(195, 195, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <button class="button" id="button">啓動</button>
+        <input type="checkbox" class="checkbox" value="number" name="number" id="number">
+        <label for="number">數字</label>
+        <input type="checkbox" class="checkbox" value="letter" name="letter" id="letter">
+        <label for="letter">英文</label>
+        <label id="result">請勾選</label>
+    </div>
+</body>
+<script>
+    var button = document.getElementById("button");
+    var checkbox = document.getElementsByClassName("checkbox");
+    for(let i=0; i<checkbox.length; i++){
+        checkbox[i].addEventListener("change", function(){
+            if (document.querySelector("input[type='checkbox']:checked")) {
+                // 至少有一個 checkbox 被選中
+                result.textContent = "Start";
+            } else {
+                // 兩個 checkbox 都沒有被選中
+                result.textContent = "請勾選";
+            }
+        });
+    }
+
+</script>
+</html>

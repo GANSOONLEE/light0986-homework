@@ -7,7 +7,7 @@
 1. 需求: 選擇好ComboBox，Textbox填入文字後，按下Button，Lable顯示兩邊資料運算的結果。
 1. 注意if else。
 
-- [ ] 完成
+- [X] 完成
 
 ### 2. 兩個CheckBox，一個Button，一個Label，一個Timer。
 1. 預設值: 
